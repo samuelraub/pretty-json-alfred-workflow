@@ -1,5 +1,3 @@
-#!/usr/bin/env ruby
-
 query = ARGV[0]
 
 require 'json'
