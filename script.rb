@@ -4,7 +4,7 @@ require 'json'
 
 indent_depth = query.to_i > 0 ? query.to_i : ENV["indent_depth"].to_i
 
-json_string = query.to_i > 0 ? ENV["clip"] : query
+json_string = query.start_with?("{", "[") ? query : ENV["clip"]
 
 begin
 	parsed = JSON.parse json_string
@@ -19,8 +19,8 @@ indent_depth.times do
 end
 
 if parsed
-	puts JSON.pretty_generate parsed, indent: indent_string
+	print JSON.pretty_generate parsed, indent: indent_string
 else
 	output = { alfredworkflow: { arg: "", variables: { input: json_string } } }
-	puts JSON.generate output
+	print JSON.generate output
 end
