@@ -10,5 +10,6 @@ input = av || stdin
 
 raise "No Input!" unless input
 
-puts PJ::prettify(input, options)
+puts PJ::prettify(input, options) unless options[:a]
+puts PJ::analyse(input) if options[:a]
 
