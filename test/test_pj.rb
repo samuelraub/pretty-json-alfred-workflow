@@ -6,7 +6,9 @@ class PjTest < Minitest::Test
     assert_equal "Number of elements: 2",
       PJ::analyse('[{"foo": 1}, {"bar": 2}]')
   end
-  def test_simple
-    assert_equal "foo", "foo"
+
+  def test_analyse_hash
+    assert_equal "Number of keys: 2",
+      PJ::analyse('{"foo": 1, "bar": 2}')
   end
 end
