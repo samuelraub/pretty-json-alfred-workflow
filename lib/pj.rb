@@ -33,8 +33,8 @@ module PJ
 
   def self.analyse(query)
     parsed = JSON.parse query
-    puts "Number of elements: #{parsed.length}" if parsed.is_a? Array
-    puts "Number of keys: #{parsed.length}" if parsed.is_a? Hash
+    return "Number of elements: #{parsed.length}" if parsed.is_a? Array
+    return "Number of keys: #{parsed.length}" if parsed.is_a? Hash
   end
 end
 
